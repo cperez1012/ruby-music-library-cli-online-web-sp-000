@@ -1,7 +1,5 @@
 class MusicLibraryController
 
-  attr_accessor :name
-
   def initialize(path="./db/mp3s")
     MusicImporter.new(path).import
   end
@@ -66,7 +64,6 @@ class MusicLibraryController
   end
 
   def play_song
-    @name = name
     puts "Which song number would you like to play?"
     input = gets.strip
     if (1..Song.all.length).include?(input.to_i)
